@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css-day-3</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+
+</head>
+<body>
+	<header>
+		<div class="header_top">
+			<div class="social_icon">
+				<ul>
+					<li><a href="www.facebook.com" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+					<li><a href="www.instagram.com" data-toggle="tooltip" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+					<li><a href="www.twitter.com" data-toggle="tooltip" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+				</ul>
+			</div>
+			<div class="contact_info">
+				<ul>
+					<li><a href="tel:9726275280"><i class="fas fa-phone-square"></i> 9726275280</a></li>
+					<li><a href="mailto:dixit20051998@gmail.com"><i class="fas fa-envelope-square"></i> dixit20051998@gmail.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="header_bottom">
+			<div class="logo">
+				<a href="index.html"><img src="images/spider.png"></a>
+			</div>
+			<div class="menu_links">
+				<nav>
+					<ul>
+						<li>Home</li>
+						<li class="dropdown">Solution <i class="fas fa-sort-down"></i>
+							<ul class="content">
+								<li>solution1</li>
+								<li>solution2</li>
+							</ul>
+						</li>
+						<li class="dropdown">Service <i class="fas fa-sort-down"></i>
+							<ul class="content">
+								<li>service1</li>
+								<li>service2</li>
+							</ul>
+						</li>
+						<li class="searchbox"><input type="text" style="padding: 5px;" id="search"><button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<section class="tab_section">
+		<div class="tab_bemo">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab-1" data-toggle="tab">Tab 1</a></li>
+				<li><a href="#tab-2" data-toggle="tab">Tab 2</a></li>
+				<li><a href="#tab-3" data-toggle="tab">Tab 3</a></li>
+				<li  class="disabled"><a href="#tab-4" data-toggle="tab">Tab 4</a></li>
+			</ul>
+		</div>
+		<div class="tab-content clearfix">
+			<div class="tab-pane fade in active" id="tab-1">
+				<div class="box">
+					<div class="i1">
+						<img src="images/w1.jpg" alt="tab image">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="tab-2">
+				<div class="box">
+					<div class="i1">
+						<img src="images/w2.jpg" alt="tab image">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="tab-3">
+				<div class="box">
+					<div class="i1">
+						<img src="images/w3.jpg" alt="tab image">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="tab-3">
+				<div class="box">
+					<div class="i1">
+						<img src="images/w4.jpg" alt="tab image">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip(); 
+
+			$('.searchbox').click(function(){
+				var value = document.getElementById("search").value;
+				if(value.length > 0){
+					$("body").append( $(
+						`<div class="alert alert-success alert-dismissible fade in">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						You are Search Somthing....
+						</div>`
+						));
+				}else{
+					$("body").append( $(
+						`<div class="alert alert-danger alert-dismissible fade in">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						Enter Something To Search....
+						</div>`
+						));
+				}
+			});
+
+			$('.tab-pane').mouseenter(function () {
+				var demo = $(this).find('.box').height();
+				var height = $(this).find('.i1 > img').height() - demo;
+				if (height > 0) {
+					$(this).find('.i1').css('top', -(height));
+				} else {
+					$(this).find('.i1').css('top', 0);
+				}
+			});
+			$('.tab-pane ').mouseleave(function () {
+				$('.i1').css('top', 0);
+			});
+
+			
+		});
+	</script>
+
+</body>
+</html>
